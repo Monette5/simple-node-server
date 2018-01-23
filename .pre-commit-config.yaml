@@ -1,0 +1,18 @@
+-   repo: git://github.com/pre-commit/mirrors-jshint
+    sha: master
+    always_run: true
+    hooks:
+    -   id: jshint
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: master
+    always_run: true
+    hooks:
+    -   id: trailing-whitespace
+    -   id: check-yaml
+    -   id: check-json
+    -   id: check-added-large-files
+    # -   id: pretty-format-json
+-   repo: git://github.com/pre-commit/mirrors-scss-lint
+    sha: master
+    hooks:
+    -   id: scss-lint
