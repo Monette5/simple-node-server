@@ -1,0 +1,50 @@
+[
+  {
+    "id": "f9282d0a-0372-4e5a-9dda-b152e0aaf146",
+    "firstName": "Jeanette",
+    "lastName": "Patterson",
+    "email": "jpatterson@example.gov.uk",
+    "nationality": "gb",
+    "gender": "female"
+  },
+  {
+    "id": "ae6926f4-42a7-4d14-84d0-3e795acaca23",
+    "firstName": "Giovanni",
+    "lastName": "Dutti",
+    "email": "gdutti1@example.org",
+    "nationality": "it",
+    "gender": "male"
+  },
+  {
+    "id": "210e64ba-1ed5-4f78-9fc0-016bed4d2145",
+    "firstName": "Naomi",
+    "lastName": "Bea",
+    "email": "nbea@example.gov",
+    "nationality": "us",
+    "gender": "female"
+  },
+  {
+    "id": "5c1bf21a-f948-4c2a-83ce-7abd8a71049a",
+    "firstName": "Hubrecht",
+    "lastName": "van Dalen",
+    "email": "hubrecht.dalen@example.com",
+    "nationality": "nl",
+    "gender": "male"
+  },
+  {
+    "id": "b9d9bea7-47f7-4232-a75c-4abebd7dd31c",
+    "firstName": "Sonia",
+    "lastName": "Rose",
+    "email": "s.rose@example.co.uk",
+    "nationality": "gb",
+    "gender": "female"
+  },
+  {
+    "id": "23e44c0b-155a-4a2e-b182-52a0fb390de3",
+    "firstName": "Richard",
+    "lastName": "Patterson",
+    "email": "rp@example.us",
+    "nationality": "us",
+    "gender": "male"
+  }
+]
