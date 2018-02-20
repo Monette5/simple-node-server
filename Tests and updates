@@ -1,0 +1,8 @@
+Used mocha and chai for testing
+http://localhost:4080/user/all
+Returns all in users.json
+http://localhost:4080/user/f9282d0a-0372-4e5a-9dda-b152e0aaf146
+returns: {"id":"f9282d0a-0372-4e5a-9dda-b152e0aaf146","firstName":"Jeanette","lastName":"Patterson","email":"jpatterson@example.gov.uk","nationality":"gb","gender":"female"}
+http://localhost:4080/user/query?firstName=Jeanette
+returns: [{"id":"f9282d0a-0372-4e5a-9dda-b152e0aaf146","firstName":"Jeanette","lastName":"Patterson","email":"jpatterson@example.gov.uk","nationality":"gb","gender":"female"}]
+more to follow.....
