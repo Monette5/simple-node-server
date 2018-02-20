@@ -1,0 +1,18 @@
+Mongo readme
+cd C:\Program Files\MongoDB\Server\3.6\
+created:
+
+c:\data\db
+c:\data\log
+
+created a config file mongod.cfg
+
+created the mongo service: sc.exe create MongoDB binPath= "\"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe\" --service --config=\"C:\Program Files\MongoDB\Server\3.6\mongod.cfg\"" DisplayName= "MongoDB" start= "auto"
+
+started the mongo service: net start MongoDB
+
+To stop:
+
+net stop MongoDB
+
+mongod --port 27017 --dbpath C:\Program Files\MongoDB\Server\3.6\data\db
