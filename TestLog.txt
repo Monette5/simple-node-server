@@ -1,22 +1,18 @@
+Some general notes about the tests carried out:
 Used mocha and chai for testing and experimented with jasmine.
 
-Uses assertions for functions
+Tested in browser with chrome debug tools initially to check response:
 
-Can debug on command line and step through: node inspect myscript.js, to step through.
-Inserting the statement 'debugger' into source code enables breakpoints. 
+http://localhost:4080/user/all
+Returns all in users.json
+http://localhost:4080/user/f9282d0a-0372-4e5a-9dda-b152e0aaf146
+returns: {"id":"f9282d0a-0372-4e5a-9dda-b152e0aaf146","firstName":"Jeanette","lastName":"Patterson","email":"jpatterson@example.gov.uk","nationality":"gb","gender":"female"}
+http://localhost:4080/user/query?firstName=Jeanette
+returns: [{"id":"f9282d0a-0372-4e5a-9dda-b152e0aaf146","firstName":"Jeanette","lastName":"Patterson","email":"jpatterson@example.gov.uk","nationality":"gb","gender":"female"}]
 
-API Debugging using chrome dev tools gives server responses and Postman is useful for this.
+The tests are in test.js, which I had placed in a folder entitled 'test'
 
-I have used junit to run tests using test data with partitioning where the limits are tested and the postconditions checked.
-
-Defensive programming is useful to ensure incorrect inputs are not accepted and rge precondition is upheld.
-
-I also used try catch blocks:
-try {
-  init();
-} catch (err) {
-  console.error(`Failed to run the server. ${err.message}`);
-}
+This method was to check general routes: 
 
 Added this to test to check invalid path: app.use("*", (req, res) => {
   res.status(404).send('The page does not exist on the server, please enter the correct route');
@@ -27,11 +23,67 @@ Added this to test to check invalid path: app.use("*", (req, res) => {
   response.status(500).send('Something broke!')
 })
 
-Some general notes.
+This method was used to check the returned data from users.json. I would continue with tests for the other functions if needed.
 
-http://localhost:4080/user/all
-Returns all in users.json
-http://localhost:4080/user/f9282d0a-0372-4e5a-9dda-b152e0aaf146
-returns: {"id":"f9282d0a-0372-4e5a-9dda-b152e0aaf146","firstName":"Jeanette","lastName":"Patterson","email":"jpatterson@example.gov.uk","nationality":"gb","gender":"female"}
-http://localhost:4080/user/query?firstName=Jeanette
-returns: [{"id":"f9282d0a-0372-4e5a-9dda-b152e0aaf146","firstName":"Jeanette","lastName":"Patterson","email":"jpatterson@example.gov.uk","nationality":"gb","gender":"female"}]
+ //I would also add tests to check :id and query routes to check the individual functionality or unit
+  describe('GET /user/all', function () {
+      it('it should GET all the users', function(done) {
+        chai.request(server)
+            .get('/user/all')
+            .end(function(err, res) {
+               expect(res).to.have.status(200);
+              done();
+           
+            });
+	  });
+  });
+
+Created tests some just for experiemntation not related to the project in addition to the above and ran mocha:
+c:\Users\Monette\Documents\simple-node-server-master>mocha
+
+The output from the command:
+
+The server is listening on port 4080.
+  √ should not add a class which already exists
+  √ should append new class after existing one
+  Array
+    √ should start empty
+
+  Array
+    √ should start empty
+
+  addClass
+    - should add class to element
+    - should not add a class which already exists
+
+  addClass
+    √ should add class to element
+    - should not add a class which already exists
+
+  Server
+    √ should return Not Found (58ms)
+    GET /user/all
+      √ it should GET all the users
+
+
+  7 passing (118ms)
+  3 pending
+  
+General notes:
+
+Can debug on command line and step through: node inspect myscript.js, to step through.
+Inserting the statement 'debugger' into source code enables breakpoints. 
+
+API Debugging using chrome dev tools gives server responses and Postman is useful for this.
+
+I have previously used junit to run tests using test data with partitioning where the limits are tested and the postconditions checked.
+
+Defensive programming is useful to ensure incorrect inputs are not accepted and the precondition is upheld.
+
+I have also used try catch blocks similar to:
+try {
+  init();
+} catch (err) {
+  console.error(`Failed to run the server. ${err.message}`);
+}
+
